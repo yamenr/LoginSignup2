@@ -26,12 +26,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        gotoSignup();
+        gotoLogin();
     }
 
     private void gotoSignup() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.container,new SignupFragment());
+        ft.commit();
+    }
+
+    private void gotoLogin() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container,new LoginFragment());
         ft.commit();
     }
 }
