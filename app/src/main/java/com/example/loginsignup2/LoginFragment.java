@@ -70,6 +70,7 @@ public class LoginFragment extends Fragment {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 Toast.makeText(getActivity(), "Success!", Toast.LENGTH_SHORT).show();
+                                gotoAddRestaurantFragment();
                             }
                         }
                 ).addOnFailureListener(new OnFailureListener() {
@@ -86,6 +87,12 @@ public class LoginFragment extends Fragment {
                 gotoSignup();
             }
         });
+    }
+
+    private void gotoAddRestaurantFragment() {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container,new AddRestaurantFragment());
+        ft.commit();
     }
 
     private void gotoSignup() {
